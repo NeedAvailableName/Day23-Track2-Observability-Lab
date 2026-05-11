@@ -66,3 +66,24 @@ groups:
           summary: "SLO slow burn: error budget consumed > 6× normal"
           description: "30m and 6h burn rates both exceed 6×. Investigate before it escalates."
           runbook_url: "https://wiki.example/runbooks/slo-slow-burn"
+
+      # ── Added by Bonus Incident-01/02/03 postmortem ──────────────────────
+      # Acute error spike — fires fast on sudden error bursts.
+      # Complements the burn-rate alerts which need sustained degradation.
+      # Rationale: burn-rate with 2m `for` is too slow for a crash (detected in 5s
+      # by `up` metric, but error-rate burn-rate needs accumulation). This alert
+      # catches acute spikes within 30 seconds.
+      - alert: InferenceErrorSpike
+        expr: |
+          sum(rate(inference_requests_total{status="error"}[1m])) > 0.1
+          and
+          sum(rate(inference_requests_total[1m])) > 0
+        for: 30s
+        labels:
+          severity: critical
+          service: inference-api
+          source: bonus-chaos-drill
+        annotations:
+          summary: "Inference error spike: > 0.1 errors/sec sustained for 30s"
+          description: "Acute error rate detected. Check for backend failures, OOM kills, or data poisoning."
+          runbook_url: "bonus/postmortems/incident-02.md"

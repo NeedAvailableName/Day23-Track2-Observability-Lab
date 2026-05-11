@@ -1,0 +1,1 @@
+﻿{"status":"success","data":{"resultType":"vector","result":[{"metric":{"__name__":"inference_requests_total","instance":"app:8000","job":"inference-api","model":"llama3-mock","status":"ok"},"value":[1778515332.030,"1001"]}]}}

@@ -1,0 +1,76 @@
+﻿# HELP python_gc_objects_collected_total Objects collected during gc
+# TYPE python_gc_objects_collected_total counter
+python_gc_objects_collected_total{generation="0"} 2254.0
+python_gc_objects_collected_total{generation="1"} 3162.0
+python_gc_objects_collected_total{generation="2"} 616.0
+# HELP python_gc_objects_uncollectable_total Uncollectable objects found during GC
+# TYPE python_gc_objects_uncollectable_total counter
+python_gc_objects_uncollectable_total{generation="0"} 0.0
+python_gc_objects_uncollectable_total{generation="1"} 0.0
+python_gc_objects_uncollectable_total{generation="2"} 0.0
+# HELP python_gc_collections_total Number of times this generation was collected
+# TYPE python_gc_collections_total counter
+python_gc_collections_total{generation="0"} 238.0
+python_gc_collections_total{generation="1"} 21.0
+python_gc_collections_total{generation="2"} 1.0
+# HELP python_info Python platform information
+# TYPE python_info gauge
+python_info{implementation="CPython",major="3",minor="12",patchlevel="13",version="3.12.13"} 1.0
+# HELP process_virtual_memory_bytes Virtual memory size in bytes.
+# TYPE process_virtual_memory_bytes gauge
+process_virtual_memory_bytes 2.212315136e+09
+# HELP process_resident_memory_bytes Resident memory size in bytes.
+# TYPE process_resident_memory_bytes gauge
+process_resident_memory_bytes 8.0662528e+07
+# HELP process_start_time_seconds Start time of the process since unix epoch in seconds.
+# TYPE process_start_time_seconds gauge
+process_start_time_seconds 1.77851460578e+09
+# HELP process_cpu_seconds_total Total user and system CPU time spent in seconds.
+# TYPE process_cpu_seconds_total counter
+process_cpu_seconds_total 6.44
+# HELP process_open_fds Number of open file descriptors.
+# TYPE process_open_fds gauge
+process_open_fds 20.0
+# HELP process_max_fds Maximum number of open file descriptors.
+# TYPE process_max_fds gauge
+process_max_fds 1.048576e+06
+# HELP inference_requests_total Total inference requests
+# TYPE inference_requests_total counter
+inference_requests_total{model="llama3-mock",status="ok"} 1001.0
+# HELP inference_requests_created Total inference requests
+# TYPE inference_requests_created gauge
+inference_requests_created{model="llama3-mock",status="ok"} 1.778514776452203e+09
+# HELP inference_latency_seconds Inference end-to-end latency
+# TYPE inference_latency_seconds histogram
+inference_latency_seconds_bucket{le="0.05",model="llama3-mock"} 0.0
+inference_latency_seconds_bucket{le="0.1",model="llama3-mock"} 203.0
+inference_latency_seconds_bucket{le="0.25",model="llama3-mock"} 1000.0
+inference_latency_seconds_bucket{le="0.5",model="llama3-mock"} 1001.0
+inference_latency_seconds_bucket{le="1.0",model="llama3-mock"} 1001.0
+inference_latency_seconds_bucket{le="2.0",model="llama3-mock"} 1001.0
+inference_latency_seconds_bucket{le="5.0",model="llama3-mock"} 1001.0
+inference_latency_seconds_bucket{le="10.0",model="llama3-mock"} 1001.0
+inference_latency_seconds_bucket{le="+Inf",model="llama3-mock"} 1001.0
+inference_latency_seconds_count{model="llama3-mock"} 1001.0
+inference_latency_seconds_sum{model="llama3-mock"} 169.8758282339989
+# HELP inference_latency_seconds_created Inference end-to-end latency
+# TYPE inference_latency_seconds_created gauge
+inference_latency_seconds_created{model="llama3-mock"} 1.7785147764522934e+09
+# HELP inference_active_gauge In-flight inference requests
+# TYPE inference_active_gauge gauge
+inference_active_gauge 0.0
+# HELP inference_tokens_total Tokens processed (input/output)
+# TYPE inference_tokens_total counter
+inference_tokens_total{direction="input",model="llama3-mock"} 7379.0
+inference_tokens_total{direction="output",model="llama3-mock"} 28749.0
+# HELP inference_tokens_created Tokens processed (input/output)
+# TYPE inference_tokens_created gauge
+inference_tokens_created{direction="input",model="llama3-mock"} 1.7785147764522324e+09
+inference_tokens_created{direction="output",model="llama3-mock"} 1.7785147764522464e+09
+# HELP inference_quality_score Latest eval-as-metric quality score [0,1]
+# TYPE inference_quality_score gauge
+inference_quality_score{model="llama3-mock"} 0.667
+# HELP gpu_utilization_percent Simulated GPU utilization [0,100]
+# TYPE gpu_utilization_percent gauge
+gpu_utilization_percent 25.30082091361023
+
